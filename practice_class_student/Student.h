@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+
 using namespace std;
 
 struct birthDate
@@ -20,7 +21,9 @@ struct Education
 
 class Student
 {
+public:
 	string name;
+	char* fullname;
 	birthDate birthdate;
 	string phoneNumber;
 	string city;
@@ -28,6 +31,11 @@ class Student
 	Education education;
 public:
 	void showStudent();
+
+	Student();
+	Student(string nme, string cty, string cntry);
+	Student(char* fn, int byear, int bmonth, int bday, string phn, string cty, string cntry, string ename, string ecity, string ecountry);
+
 
 	string getName();
 	birthDate getBirthDate();
@@ -42,5 +50,7 @@ public:
 	void setCity(string c);
 	void setCountry(string c);
 	void setEducation(string n, string c,string coun);
+
+	~Student();
 };
 
