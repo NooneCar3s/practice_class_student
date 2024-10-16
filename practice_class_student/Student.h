@@ -6,22 +6,25 @@ using namespace std;
 
 struct birthDate
 {
-	int year;
-	int month;
 	int day;
+	int month;
+	int year;
 };
 
 struct Education
 {
-	string name;
 	string city;
 	string country;
+	string name;
 
 };
 
 class Student
 {
 public:
+
+	static int count;
+
 	string name;
 	char* fullname;
 	birthDate birthdate;
@@ -32,9 +35,18 @@ public:
 public:
 	void showStudent();
 
-	Student();
+	Student() :Student{ nullptr,1,1,1,"1","1","1","1","1","1" } {
+		count++;
+	}
 	Student(string nme, string cty, string cntry);
-	Student(char* fn, int byear, int bmonth, int bday, string phn, string cty, string cntry, string ename, string ecity, string ecountry);
+	Student(char* fn, int byear, int bmonth, int bday, string phn, string cty, string cntry, string ename, string ecity, string ecountry):
+		fullname{ fn ? new char[strlen(fn) + 1] : nullptr }, birthdate{ bday, bmonth, byear },
+		phoneNumber{phn},city{cty},country{cntry},education{ecity,ecountry,ename}{
+		count++;
+		if (fullname) {
+			strcpy_s(fullname, strlen(fn) + 1, fn);
+		}
+	}
 
 
 	string getName();
@@ -53,4 +65,6 @@ public:
 
 	~Student();
 };
+
+int Student::count{ 0 };
 

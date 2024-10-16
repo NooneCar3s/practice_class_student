@@ -4,8 +4,16 @@
 
 using namespace std;
 
+
+
 int main()
 {
+    birthDate a{ 1,2,3 };
+
+    cout << a.day << endl;
+    cout << a.month << endl;
+    cout << a.year << endl;
+
     Student student1,student2("Name","City","Country"), student3((char*)"Name", 1999, 10, 10, "12345", "City", "Country", "Ename", "Ecity", "Ecountry");
 
     student1.showStudent();
